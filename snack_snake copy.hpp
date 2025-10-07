@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <ctime>
 
 
 /*
@@ -16,10 +17,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-
+typedef unsigned char uint8_t;
 
 struct pos {
-    u_int8_t x;u_int8_t y;
+    uint8_t x;uint8_t y;
     bool operator==(const pos& other) const {
         return x == other.x && y == other.y;
     }

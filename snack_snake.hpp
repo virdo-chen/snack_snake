@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <vector>
-
+#include <iostream>
+#include <ctime>
 
 /*
 Copyright 2025 virdo-chen
@@ -20,7 +21,7 @@ limitations under the License.
 
 
 struct pos {
-    u_int8_t x;u_int8_t y;
+    uint8_t x;uint8_t y;
     bool operator==(const pos& other) const {
         return x == other.x && y == other.y;
     }
@@ -84,6 +85,7 @@ public:
     short snakeLength = 2;
 
     void init() {
+        srand((unsigned)time(NULL));
         this->snakeLength = 2;
         this->direction = 'u';
         this->current_snack = this->snack;
@@ -93,10 +95,12 @@ public:
         this->snakes[1].y = this->height / 2;
         
 
+        
         for (short i = 0; i < this->snack; ++i) 
         do
         {
             this->snacks[i].x = rand() % this->width;
+            std::cout << (int)this->snacks[i].x << std::endl;
             this->snacks[i].y = rand() % this->height;
         }
         while(in_list(&(this->snacks[i]), this->snacks[i], this->snakes)

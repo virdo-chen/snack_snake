@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./snack_snake.hpp"
+#include "./snack_snake copy.hpp"
 
 
 /*
@@ -90,7 +90,18 @@ int main(){
         std::cin.ignore(); // 清除输入缓冲区
 
         int sit = game.step();
-
+        // std::cout << "sit:" << sit << std::endl;
+        // std::cout << "current_snack:" << game.current_snack << std::endl;
+        if (!sit) {
+            // 游戏结束
+            std::cout << "你无辣～" << std::endl;
+            break; // 或者其他处理方式
+        }
+        if (sit == 2) {
+            // 胜利
+            std::cout << "你赢辣～" << std::endl;
+            break; // 或者其他处理方式
+        }
         // 蛇头身写入地图
         map[game.snakes[0].x][game.snakes[0].y] = 'H';
         for (int i = 1; i < game.snakeLength; ++i) {
@@ -114,18 +125,7 @@ int main(){
             }
         }
 
-        // std::cout << "sit:" << sit << std::endl;
-        // std::cout << "current_snack:" << game.current_snack << std::endl;
-        if (!sit) {
-            // 游戏结束
-            std::cout << "你无辣～" << std::endl;
-            break; // 或者其他处理方式
-        }
-        if (sit == 2) {
-            // 胜利
-            std::cout << "你赢辣～" << std::endl;
-            break; // 或者其他处理方式
-        }
+        
     }
     game.release();
     
